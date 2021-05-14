@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-img-wrapper p-2" >
+    <img *ngIf="Medicine.Image" class="card-img" src="assets/images/{{Medicine.Image}}">
+    <img *ngIf="!Medicine.Image" class="card-img" src="assets/images/medicine_default.jpg">
+    <ul class="list-inline text-center member-icons">
+
+    </ul>
+  </div>
+    <div class="card-body p-2" >
+      <h6>{{Medicine.Name}}</h6>
+      <p>{{Medicine.Price}}</p>
+      <p>{{Medicine.Description}}</p>
+      <p>{{Medicine.Category}}</p>
+      <button class="btn btn-primary" routerLink="/medicine-detail/{{Medicine.Id}}">select</button>
+    </div>
+  </div>

@@ -1,0 +1,48 @@
+[
+  {
+  "Id":1,
+  "Name": "medicine",
+  "Price":30,
+  "Image":"cetrizine.jpg",
+  "Seller":"ABC",
+  "Description":"for cold and cough",
+  "Category":"Tablet"
+},
+{
+  "Id":2,
+  "Name": "medicine2",
+  "Price":40,
+  "Image":"vicks.jpg",
+  "Seller":"DEF",
+  "Description":"for cold2",
+  "Category":"Tablet"
+},
+{
+  "Id":3,
+  "Name": "medicine3",
+  "Price":50,
+  "Image":"benadryl.png",
+  "Seller":"GHI",
+  "Description":"used for cough",
+  "Category":"Tablet"
+},
+{
+  "Id":4,
+  "Name": "medicine4",
+  "Price":60,
+  "Image":"",
+  "Seller":"JKL",
+  "Description":"used for fever",
+  "Category":"Tablet"
+},
+{
+  "Id":5,
+  "Name": "medicine",
+  "Price":70,
+  "Image":"",
+  "Seller":"MNO",
+  "Description":"helps in buiding immunity",
+  "Category":"Vitamins"
+}
+
+]

@@ -1,0 +1,84 @@
+
+
+
+<div class=card>
+  <div class="card-header">
+    Add new medicine
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)='onSubmit()' #Form="ngForm">
+      <div class="tab-panel">
+        <tabset class="member-tabset" #formTabs>
+          <tab heading="Medicine Info" ngModelGroup="MedicineInfo" #MedicineInfo="ngModelGroup">
+            <div class="form-group col-12" name="Name" required>
+              <label for="name">Name</label>
+              <input type="text" class="form-control" #medName="ngModel"
+               ngModel name ="Name" required minlength="5">
+              <span *ngIf="!medName.valid && medName.touched" class="error-block">
+               <span *ngIf="medName.errors.required">Please provide name</span>
+               <span *ngIf="medName.errors.minlength">Name must be atleast 5 char long</span>
+              </span>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" ngModel name="Price">
+        </div>
+
+        <div class="form-group col-12">
+          <label for="category">Category</label>
+          <select
+          class="form-control"
+
+
+          [(ngModel)]="medicineView.Category" name="Category">
+          <option *ngFor="let category of CategoryList"
+          value={{category.catId}}>
+          {{category.categoryName}}
+          </option>
+          </select>
+      </div>
+
+        <div class="form-group col-12">
+          <label for="name">Seller</label>
+          <input type="text" class="form-control" ngModel name="Seller">
+      </div>
+      <div class="form-group col-12">
+        <label for="name">Description</label>
+        <input type="text" class="form-control" ngModel name="Description">
+    </div>
+
+      <div class="form-group col-12">
+        <button [disabled]="!MedicineInfo.valid" type="button" class="btn btn-primary mr-2" (click)="selectTab(1)">Next</button>
+
+      </div>
+
+
+          </tab>
+          <tab heading="Upload photo">
+            <div class="form-group col-12">
+              <div class="photo-control">
+                  <button class="mt-5" type="button">Upload</button> <br>
+                  This is under construction
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <button type="button" class="btn btn-primary btn-block "
+              (click)="selectTab(0)">Back</button>
+
+              <button type="submit" class="btn btn-primary btn-block">Save</button>
+              <button type="reset" class="btn btn-primary btn-block">Cancel</button>
+
+
+
+            </div>
+          </tab>
+
+        <!-- <tab heading="Basic Title 2">Basic content 2</tab> -->
+        </tabset>
+      </div>
+
+
+    </form>
+  </div>
+</div>

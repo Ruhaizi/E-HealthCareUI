@@ -1,0 +1,10 @@
+<label>Filter Category</label>
+<input [(ngModel)]="Category">
+<button type="button" class="btn btn-light"(click)="onCategoryFilter()">Search</button>
+<button type="button" class="btn btn-light"(click)="onCategoryFilterClear()">Clear</button>
+
+<div class="row">
+  <div *ngFor="let medicine of medicines | filter:SearchCategory:'Category'" class="shadow-lg col-sm-3 p-3">
+<app-medicine-card [Medicine]="medicine"></app-medicine-card>
+</div>
+</div>
