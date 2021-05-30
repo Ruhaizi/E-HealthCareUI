@@ -6,55 +6,72 @@
     Add new medicine
   </div>
   <div class="card-body">
-    <form (ngSubmit)='onSubmit()' #Form="ngForm">
+    <form (ngSubmit)='onSubmit()' [formGroup]="addMedicineForm">
       <div class="tab-panel">
         <tabset class="member-tabset" #formTabs>
-          <tab heading="Medicine Info" ngModelGroup="MedicineInfo" #MedicineInfo="ngModelGroup">
+          <tab heading="Medicine Info" formGroupName="MedicineInfo">
             <div class="form-group col-12" name="Name" required>
               <label for="name">Name</label>
-              <input type="text" class="form-control" #medName="ngModel"
-               ngModel name ="Name" required minlength="5">
-              <span *ngIf="!medName.valid && medName.touched" class="error-block">
+              <input type="text" class="form-control"
+                formControlName="Name" required minlength="5">
+              <!-- <span *ngIf="!medName.valid && medName.touched" class="error-block">
                <span *ngIf="medName.errors.required">Please provide name</span>
                <span *ngIf="medName.errors.minlength">Name must be atleast 5 char long</span>
-              </span>
+              </span> -->
           </div>
 
           <div class="form-group col-12">
             <label for="price">Price</label>
-            <input type="text" class="form-control" ngModel name="Price">
+            <input type="text" class="form-control"  formControlName="Price" required>
         </div>
 
+        <!-- for="category" -->
         <div class="form-group col-12">
-          <label for="category">Category</label>
+          <label >Category</label>
           <select
           class="form-control"
+          formControlName="Category"
+          [(ngModel)]="medicineView.Category"  required >
 
-
-          [(ngModel)]="medicineView.Category" name="Category">
           <option *ngFor="let category of CategoryList"
           value={{category.catId}}>
           {{category.categoryName}}
           </option>
           </select>
+          <div class="error-block"
+          *ngIf="Category.invalid && (nextClicked|| Category.touched)">
+            Please mention Category
+          </div>
       </div>
 
         <div class="form-group col-12">
           <label for="name">Seller</label>
-          <input type="text" class="form-control" ngModel name="Seller">
+          <input type="text" class="form-control"  formControlName="Seller" required>
+          <div class="error-block"
+          *ngIf="Seller.invalid && nextClicked">
+            Please mention Seller
+          </div>
       </div>
+
       <div class="form-group col-12">
         <label for="name">Description</label>
-        <input type="text" class="form-control" ngModel name="Description">
+        <input type="text" class="form-control" formControlName="Description" required>
+        <div class="error-block"
+          *ngIf="Description.invalid && nextClicked">
+            Please mention Description
+          </div>
     </div>
 
       <div class="form-group col-12">
-        <button [disabled]="!MedicineInfo.valid" type="button" class="btn btn-primary mr-2" (click)="selectTab(1)">Next</button>
+        <button  type="button" class="btn btn-primary mr-2" (click)="selectTab(1) ">Next</button>
+        <!-- <div class="error-block"
+          *ngIf="Seller.invalid && nextClicked">
+            Please mention Seller
+          </div> -->
 
-      </div>
-
-
+        </div>
           </tab>
+
           <tab heading="Upload photo">
             <div class="form-group col-12">
               <div class="photo-control">
@@ -82,3 +99,4 @@
     </form>
   </div>
 </div>
+

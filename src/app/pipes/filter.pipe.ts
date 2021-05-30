@@ -7,6 +7,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: any[] , filterString: string, medName: string): any[] {
     const resultArray=[];
+    if(value){
     if(value.length===0|| filterString===''|| medName===''){
       return value;
     }
@@ -17,6 +18,7 @@ export class FilterPipe implements PipeTransform {
       }
     }
     return resultArray;
+  }
 
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserForLogin } from 'src/app/model/user';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,15 +20,31 @@ export class UserLoginComponent implements OnInit {
   }
   onLogin(loginForm:NgForm){
     console.log(loginForm.value);
-    const token=this.authService.authUser(loginForm.value)
-    if(token){
-      localStorage.setItem('token', token.userName)
+    this.authService.authUser(loginForm.value).subscribe(
+      (response: UserForLogin)=>{
+        console.log(response);
+        const user=response;
+        if(user){
+     localStorage.setItem('token', user.token);
+     localStorage.setItem('userName',user.userName);
      this.alert.success('Login Successful');
      this.router.navigate(['/']);
+        }
+      }, error=>{
+        console.log(error);
+        this.alert.error(error.error);
+
     }
-    else{
-     this.alert.error("Login not successful");
-    }
+
+    );
+    // if(token){
+    //   localStorage.setItem('token', token.userName)
+    //  this.alert.success('Login Successful');
+    //  this.router.navigate(['/']);
+    // }
+    // else{
+    //  this.alert.error("Login not successful");
+    // }
   }
 
 }

@@ -1,6 +1,23 @@
-<p>
+<!-- <p>
   medicine-detail works!
 Selected property is {{medicineId}}
 <br/><br/>
 <button (click)="onSelectNext()" class="btn btn-primary">Select Next page</button>
-</p>
+</p> -->
+<!-- <div class="card-body p-2" >
+  <h6>{{medicine.Name}}</h6>
+  <p>{{Medicine.Price}}</p>
+  <p>{{Medicine.Description}}</p>
+  <p>{{Medicine.Category}}</p>
+  <button class="btn btn-primary" (click)="addToCart(medicine)">Buy</button>
+
+</div> -->
+<h2>medicine Details</h2>
+
+<div *ngIf="medicine">
+  <h3>{{ medicine.Name }}</h3>
+  <h4>{{ medicine.Price | currency }}</h4>
+  <p>{{ medicine.Description }}</p>
+  <button (click)="addToCart(medicine)">Buy</button>
+
+</div>

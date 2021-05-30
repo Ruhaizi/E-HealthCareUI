@@ -12,27 +12,28 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class UserRegisterComponent implements OnInit {
 
-  registerationForm: FormGroup;
+  registrationForm: FormGroup;
   user: UserForRegister;
   userSubmitted: boolean;
   constructor(private fb: FormBuilder,
+              private userService :UserServiceService,
               private authService: AuthService,
               private alert: AlertService ) { }
 
   ngOnInit() {
-  // this.registerationForm = new FormGroup({
+  // this.registrationForm = new FormGroup({
   //   userName: new FormControl(null, Validators.required),
   //   email: new FormControl(null, [Validators.required, Validators.email]),
   //   password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
   //   confirmPassword: new FormControl(null, [Validators.required]),
   //   mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
   // }, this.passwordMatchingValidatior);
-      this.createRegisterationForm();
-  // this.registerationForm.controls['userName'].setValue('Default Value');
+      this.createRegistrationForm();
+  // this.registrationForm.controls['userName'].setValue('Default Value');
   }
 
-  createRegisterationForm() {
-      this.registerationForm =  this.fb.group({
+  createRegistrationForm() {
+      this.registrationForm =  this.fb.group({
           userName: [null, Validators.required],
           email: [null, [Validators.required, Validators.email]],
           password: [null, [Validators.required, Validators.minLength(8)]],
@@ -48,22 +49,28 @@ export class UserRegisterComponent implements OnInit {
 
 
   onSubmit() {
-      console.log(this.registerationForm.value);
+      console.log(this.registrationForm.value);
       this.userSubmitted = true;
 
-      if (this.registerationForm.valid) {
-          // this.user = Object.assign(this.user, this.registerationForm.value);
+      if (this.registrationForm.valid) {
+         // this.user = Object.assign(this.user, this.registrationForm.value);
           this.authService.registerUser(this.userData()).subscribe(() =>
           {
               this.onReset();
               this.alert.success('Congrats, you are successfully registered');
-          });
+          },error=>{
+            console.log(error);
+            this.alert.error(error.error);
+          }
+          );
+         // localStorage.setItem('Users',JSON.stringify(this.user));
       }
   }
 
+
   onReset() {
       this.userSubmitted = false;
-      this.registerationForm.reset();
+      this.registrationForm.reset();
   }
 
 
@@ -80,20 +87,20 @@ export class UserRegisterComponent implements OnInit {
   // Getter methods for all form controls
   // ------------------------------------
   get userName() {
-      return this.registerationForm.get('userName') as FormControl;
+      return this.registrationForm.get('userName') as FormControl;
   }
 
   get email() {
-      return this.registerationForm.get('email') as FormControl;
+      return this.registrationForm.get('email') as FormControl;
   }
   get password() {
-      return this.registerationForm.get('password') as FormControl;
+      return this.registrationForm.get('password') as FormControl;
   }
   get confirmPassword() {
-      return this.registerationForm.get('confirmPassword') as FormControl;
+      return this.registrationForm.get('confirmPassword') as FormControl;
   }
   get mobile() {
-      return this.registerationForm.get('mobile') as FormControl;
+      return this.registrationForm.get('mobile') as FormControl;
   }
   // ------------------------
 }

@@ -9,7 +9,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+//import { LoginComponent } from './login/login.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { FormUserDetailComponent } from './user-detail/form-user-detail/form-user-detail.component';
 import { UserDetailService } from './shared/user-detail.service';
@@ -26,23 +26,32 @@ import { AlertService } from './services/alert.service';
 import { AuthService } from './services/auth.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PaymentComponent } from './payment/payment.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartService } from './services/cart.service';
+import { CartComponent } from './cart/cart.component';
 
 
 const appRoutes: Routes=[
-  {path:'add-medicine', component: AddMedicineComponent},
+  { path: '', component: HomeComponent },
+  {path:'Logout',component:HomeComponent},
+  {path:'medicine-detail/:Id',component:MedicineDetailComponent},
+  //{ path: 'medicines/:medicineId', component: MedicineDetailComponent },
+  { path: 'cart', component: CartComponent },
   {path:'', component: MedicineListComponent},
-  {path:'medicine-detail/:id',component:MedicineDetailComponent},
+  {path:'add-medicine', component: AddMedicineComponent},
+
   {path:'user/login', component:UserLoginComponent},
   {path:'user/register', component:UserRegisterComponent},
+  {path:'payment',component:PaymentComponent},
   {path:'**', component:MedicineListComponent},
 
 ]
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
+
     UserDetailComponent,
     MedicineCardComponent,
     FormUserDetailComponent,
@@ -53,7 +62,9 @@ const appRoutes: Routes=[
       UserLoginComponent,
       UserRegisterComponent,
       FilterPipe,
-      PaymentComponent
+      PaymentComponent,
+      ProductDetailsComponent,
+      CartComponent
    ],
   imports: [
     FormsModule,
@@ -82,7 +93,7 @@ const appRoutes: Routes=[
     //  },
     // ])
   ],
-  providers: [HealthService,UserDetailService,UserServiceService,AlertService,AuthService,FilterPipe],
+  providers: [HealthService,UserDetailService,UserServiceService,AlertService,AuthService,FilterPipe, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

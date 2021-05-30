@@ -8,9 +8,12 @@
   </div>
     <div class="card-body p-2" >
       <h6>{{Medicine.Name}}</h6>
-      <p>{{Medicine.Price}}</p>
-      <p>{{Medicine.Description}}</p>
-      <p>{{Medicine.Category}}</p>
-      <button class="btn btn-primary" routerLink="/medicine-detail/{{Medicine.Id}}">select</button>
+      <p>Price        :{{Medicine.Price}}</p>
+      <p>Description  :{{Medicine.Description}}</p>
+      <p>Category     :{{Medicine.Category}}</p>
+      <!-- <p>{{Medicine.Id}}</p> -->
+      <!-- <button class="btn btn-primary" routerLink="/medicine-detail/{{Medicine.Id}}">Buy</button> -->
+      <button class="btn btn-primary" routerLink="/medicine-detail/{{Medicine.Id}}">Buy</button>
+
     </div>
   </div>

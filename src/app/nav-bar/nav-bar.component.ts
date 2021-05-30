@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertService } from '../services/alert.service';
 
 @Component({
@@ -7,16 +8,18 @@ import { AlertService } from '../services/alert.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
+  loggedinUser:string;
   constructor(private alert: AlertService) { }
 
   ngOnInit() {
   }
   loggedIn(){
-    return localStorage.getItem('token');
+    this.loggedinUser= localStorage.getItem('userName');
+    return this.loggedinUser;
   }
-  logout(){
+  onLogout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('userName');
     this.alert.success("you are logged out");
   }
 

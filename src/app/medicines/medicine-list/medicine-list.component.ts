@@ -31,10 +31,15 @@ export class MedicineListComponent implements OnInit {
     this.HealthService.getAllMedicines().subscribe(
       data=> {
         this.medicines=data;
-        console.log(data);
+        const newMedicine =JSON.parse(localStorage.getItem('newMed'));
+
+        if(newMedicine){
+          this.medicines=[newMedicine, ...this.medicines];
+        }
+       // console.log(data);
             },
             error=>{
-              console.log(error);
+             // console.log(error);
             }
           );
           }
