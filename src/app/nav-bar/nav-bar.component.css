@@ -1,0 +1,71 @@
+/* Navbar Styling */
+
+
+.nav-items {
+  display: flex; /* Align children horizontally */
+  align-items: center; /* Vertically align the items */
+  gap: 10px; /* Add space between items */
+}
+.navbar {
+  background: linear-gradient(to right, #f9f8f7, #e8e7e5) !important; /* Soft gradient to match the registration page */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-family: 'Arial', sans-serif;
+  color: #a83b3b !important; /* Neutral gray for consistency */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #a83b3b !important; /* Matching the label gray */
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #333 !important; /* Dark gray for hover state */
+  text-decoration: underline;
+}
+
+.navbar-toggler {
+  border: 1px solid #6c6c6c !important;
+}
+
+.navbar-toggler-icon {
+  background-color: #a83b3b !important;
+}
+
+.dropdown-toggle.text-dark {
+  font-weight: 600;
+  color: #6c6c6c !important;
+}
+
+.button.fancy-button {
+  background-color: #fefefe !important; /* Subtle white-beige, matching form controls */
+  color: #6c6c6c !important; /* Neutral gray text */
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.button.fancy-button:hover {
+  background-color: #e3e1dd !important; /* Light beige to match the card gradient */
+  color: #333 !important; /* Dark gray for contrast */
+}
+
+.active {
+  font-weight: bold;
+  border-bottom: 2px solid #6c6c6c;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav .nav-item {
+    text-align: center;
+  }
+}

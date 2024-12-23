@@ -1,23 +1,16 @@
-<!-- <p>
-  medicine-detail works!
-Selected property is {{medicineId}}
-<br/><br/>
-<button (click)="onSelectNext()" class="btn btn-primary">Select Next page</button>
-</p> -->
-<!-- <div class="card-body p-2" >
-  <h6>{{medicine.Name}}</h6>
-  <p>{{Medicine.Price}}</p>
-  <p>{{Medicine.Description}}</p>
-  <p>{{Medicine.Category}}</p>
-  <button class="btn btn-primary" (click)="addToCart(medicine)">Buy</button>
+<h2 class="medicine-details-heading">Medicine Details</h2>
 
-</div> -->
-<h2>medicine Details</h2>
+<div *ngIf="medicine" class="medicine-details-container">
+  <div class="medicine-image">
+    <img *ngIf="medicine.Image" [src]="'assets/images/' + medicine.Image" alt="{{ medicine.Name }}">
+    <img *ngIf="!medicine.Image" src="assets/images/medicine_default.jpg" alt="Default Image">
+  </div>
 
-<div *ngIf="medicine">
-  <h3>{{ medicine.Name }}</h3>
-  <h4>{{ medicine.Price | currency }}</h4>
-  <p>{{ medicine.Description }}</p>
-  <button (click)="addToCart(medicine)">Buy</button>
-
+  <div class="medicine-info">
+    <h3 class="medicine-name">{{ medicine.Name }}</h3>
+    <h4 class="medicine-price">{{ medicine.Price | currency }}</h4>
+    <p class="medicine-description"><strong>Seller:</strong> {{medicine.Seller}}</p>
+    <p class="medicine-description">{{ medicine.Description2 }}</p>
+    <button class="btn btn-primary" (click)="addToCart(medicine)">Add to Cart</button>
+  </div>
 </div>

@@ -1,0 +1,120 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+#page {
+  padding-top: 0px;
+}
+
+/* Container Styling */
+.container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Heading Styling */
+h5.font-baloo {
+  font-family: 'Baloo', sans-serif;
+  font-size: 22px;
+  color: #333;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+/* Product Name */
+.font-baloo.font-size-20 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Price Section */
+.text-right .product_price {
+  font-size: 20px;
+  color: #ff5733;
+}
+
+/* Payment Form */
+.card-details input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.card-details input:focus {
+  border-color: #ff5733;
+  outline: none;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-warning {
+  background-color: #ff5733;
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: #ff3b18;
+}
+
+/* Miscellaneous Styling */
+.text-warning {
+  color: #ff5733;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-3 {
+  margin-top: 0px;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-fluid.w-75 {
+      width: 90%;
+  }
+
+  .col-sm-8,
+  .col-sm-2 {
+      padding: 0;
+  }
+}

@@ -6,6 +6,7 @@ export class Medicine implements IMedicineBase {
   Price: number;
   Seller : string;
   Description:string;
+  Description2: string;
   Category:string;
   Image?:string;
 

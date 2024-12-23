@@ -1,20 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd">
   <div class="container-fluid">
-    <a class="navbar-brand" >Health Care!</a>
+    <a class="navbar-brand" href="#">HealthCare&#10084;</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li *ngIf="loggedIn()" class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" aria-current="page" routerLink="/medicine-list">Buy<span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" aria-current="page" routerLink="/medicine-list">Shop<span class="sr-only">(current)</span></a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/">Sell</a>
         </li> -->
         <li *ngIf="loggedIn()"  class="nav-item">
-          <div *ngIf="loggedinUser=='Admin'"></div>
+          <div *ngIf="loggedinUser=='Admin'">
           <a class="nav-link" routerLinkActive="active" routerLink="/add-medicine">Add Medicine(Admin)</a>
+        </div>
         </li>
 
       </ul>
@@ -33,20 +34,23 @@
           routerLink="user/login"
           routerLinkActive="active">Login</a>
         </li>
-
-        <li  *ngIf="loggedIn()" class="nav-item">
-          <a href="#" class="dropdown-toggle text-dark">
+        <div *ngIf="loggedIn()" class="nav-items">
+        <li class="nav-item">
+          <a class="nav-link">
             Welcome {{loggedinUser}}
         </a>
-          <a class="nav-link" (click)="onLogout()" routerLink="/">
-         Logout</a>
         </li>
-
+        <li>
+          <a class="nav-link" (click)="onLogout()" routerLink="/">
+         Logout </a>
+        </li>
+      </div>
       </ul>
     </div>
-    <a routerLink="/cart" class="button fancy-button">
-      <i class="material-icons">shopping_cart</i>Checkout
+    <a routerLink="/cart" class="nav-link">
+      <i class="material-icons">shopping_cart</i>
     </a>
+
 
 
   </div>

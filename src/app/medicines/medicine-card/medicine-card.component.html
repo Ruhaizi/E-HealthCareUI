@@ -1,19 +1,16 @@
-<div class="card">
-  <div class="card-img-wrapper p-2" >
-    <img *ngIf="Medicine.Image" class="card-img" src="assets/images/{{Medicine.Image}}">
-    <img *ngIf="!Medicine.Image" class="card-img" src="assets/images/medicine_default.jpg">
+<div class="card shadow-lg">
+  <div class="card-img-wrapper p-2">
+    <img *ngIf="Medicine.Image" class="card-img" src="assets/images/{{Medicine.Image}}" alt="{{Medicine.Name}}">
+    <img *ngIf="!Medicine.Image" class="card-img" src="assets/images/medicine_default.jpg" alt="Default Image">
     <ul class="list-inline text-center member-icons">
-
+      <!-- Add icons or actions here if needed -->
     </ul>
   </div>
-    <div class="card-body p-2" >
-      <h6>{{Medicine.Name}}</h6>
-      <p>Price        :{{Medicine.Price}}</p>
-      <p>Description  :{{Medicine.Description}}</p>
-      <p>Category     :{{Medicine.Category}}</p>
-      <!-- <p>{{Medicine.Id}}</p> -->
-      <!-- <button class="btn btn-primary" routerLink="/medicine-detail/{{Medicine.Id}}">Buy</button> -->
-      <button class="btn btn-primary" routerLink="/medicine-detail/{{Medicine.Id}}">Buy</button>
-
-    </div>
+  <div class="card-body p-3">
+    <h6 class="card-title font-weight-bold ">{{Medicine.Name}}</h6>
+    <p class="mb-1"><strong>Price:</strong> ${{Medicine.Price}}</p>
+    <p class="mb-1"><strong>Description:</strong> {{Medicine.Description}}</p>
+    <p class="mb-2"><strong>Category:</strong> {{Medicine.Category}}</p>
+    <button class="btn btn-primary btn-block" routerLink="/medicine-detail/{{Medicine.Id}}">Buy</button>
   </div>
+</div>

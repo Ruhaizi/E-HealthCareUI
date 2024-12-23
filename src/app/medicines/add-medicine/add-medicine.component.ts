@@ -20,6 +20,7 @@ export class AddMedicineComponent implements OnInit {
   nextClicked: boolean;
 
   CategoryList:any[];
+  selectedPhoto: string | ArrayBuffer | null = null;
 
   medicineView : IMedicine={
     Id:null,
@@ -27,6 +28,7 @@ export class AddMedicineComponent implements OnInit {
     Price:null,
     Seller:null,
     Description:null,
+    Description2:null,
     Category:'',
 
   };
@@ -45,6 +47,22 @@ export class AddMedicineComponent implements OnInit {
     });
 
   }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.selectedPhoto = reader.result;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
+
 
   // CreateAddmedicineForm() {
   //   this.addMedicineForm = this.fb.group({
@@ -66,7 +84,8 @@ export class AddMedicineComponent implements OnInit {
       Price :[null, Validators.required],
       Category:['',Validators.required],
       Seller:[null,Validators.required],
-      Description:[null,Validators.required]
+      Description:[null,Validators.required],
+      Description2:[null, Validators.required]
     })
     })
 

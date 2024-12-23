@@ -1,10 +1,15 @@
-<label>Filter Category</label>
-<input [(ngModel)]="Category">
-<button type="button" class="btn btn-light"(click)="onCategoryFilter()">Search</button>
-<button type="button" class="btn btn-light"(click)="onCategoryFilterClear()">Clear</button>
-
-<div class="row">
-  <div *ngFor="let medicine of medicines | filter:SearchCategory:'Category'" class="shadow-lg col-sm-3 p-3">
-<app-medicine-card [Medicine]="medicine"></app-medicine-card>
+<div class="filter-container">
+  <label>Filter Category</label>
+  <select [(ngModel)]="Category" class="form-control">
+    <option value="" disabled selected>Select Category</option>
+    <option *ngFor="let category of categoryList" [value]="category">{{category}}</option>
+  </select>
+  <button type="button" class="btn btn-light" (click)="onCategoryFilter()">Search</button>
+  <button type="button" class="btn btn-light" (click)="onCategoryFilterClear()">Clear</button>
 </div>
+
+<div class="row mt-4">
+  <div *ngFor="let medicine of medicines | filter:SearchCategory:'Category'" class="shadow-lg col-sm-3 p-3">
+    <app-medicine-card [Medicine]="medicine"></app-medicine-card>
+  </div>
 </div>

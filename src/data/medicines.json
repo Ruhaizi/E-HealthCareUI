@@ -1,47 +1,52 @@
 [
   {
   "Id":1,
-  "Name": "medicine",
-  "Price":30,
+  "Name": "Cetrizine",
+  "Price":15,
   "Image":"cetrizine.jpg",
   "Seller":"ABC",
-  "Description":"for cold and cough",
-  "Category":"Tablet"
+  "Description":"Allergy medication",
+  "Description2":"Cetirizine is an antihistamine used to relieve symptoms of allergy, such as runny nose, sneezing, and itchy eyes, as well as itching and swelling caused by hives.",
+  "Category":"Allergy Medications"
 },
 {
   "Id":2,
-  "Name": "medicine2",
-  "Price":40,
+  "Name": "Vicks",
+  "Price":9.56,
   "Image":"vicks.jpg",
   "Seller":"DEF",
-  "Description":"for cold2",
-  "Category":"Tablet"
+  "Description":"Cold Remedy",
+  "Description2":"Vicks Ointment is a topical medication used to relieve cough and muscular pain, typically through its menthol, eucalyptus, and camphor ingredients.",
+  "Category":"Cold and Flu Remedies"
 },
 {
   "Id":3,
-  "Name": "medicine3",
-  "Price":50,
+  "Name": "Benadryl",
+  "Price":10,
   "Image":"benadryl.png",
   "Seller":"GHI",
-  "Description":"used for cough",
-  "Category":"Tablet"
+  "Description":"Antihistamine drug",
+  "Description2":"Benadryl is an over-the-counter antihistamine used to relieve allergy symptoms, hay fever, and symptoms of the common cold, such as runny nose and sneezing.",
+  "Category":"Allergy Medications"
 },
 {
   "Id":4,
-  "Name": "medicine4",
+  "Name": "Medicine4",
   "Price":60,
   "Image":"",
   "Seller":"JKL",
   "Description":"used for fever",
+  "Description2":"",
   "Category":"Tablet"
 },
 {
   "Id":5,
-  "Name": "medicine",
+  "Name": "Medicine",
   "Price":70,
   "Image":"",
   "Seller":"MNO",
   "Description":"helps in buiding immunity",
+  "Description2":"",
   "Category":"Vitamins"
 }
 

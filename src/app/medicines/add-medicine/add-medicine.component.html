@@ -3,7 +3,7 @@
 
 <div class=card>
   <div class="card-header">
-    Add new medicine
+    Add New Medicine
   </div>
   <div class="card-body">
     <form (ngSubmit)='onSubmit()' [formGroup]="addMedicineForm">
@@ -74,22 +74,34 @@
 
           <tab heading="Upload photo">
             <div class="form-group col-12">
-              <div class="photo-control">
-                  <button class="mt-5" type="button">Upload</button> <br>
-                  This is under construction
+              <label for="photo">Upload Photo</label>
+              <input
+                type="file"
+                id="photo"
+                class="form-control"
+                (change)="onFileSelected($event)"
+                accept="image/*">
+            </div>
+
+            <div class="form-group col-12">
+              <label>Preview</label>
+              <div class="photo-preview">
+                <img
+                  *ngIf="selectedPhoto"
+                  [src]="selectedPhoto"
+                  alt="Photo Preview"
+                  class="img-thumbnail"
+                  style="max-width: 300px; max-height: 300px;">
               </div>
             </div>
-            <div class="form-group col-12">
-              <button type="button" class="btn btn-primary btn-block "
-              (click)="selectTab(0)">Back</button>
 
+            <div class="form-group col-12">
+              <button type="button" class="btn btn-primary btn-block" (click)="selectTab(0)">Back</button>
               <button type="submit" class="btn btn-primary btn-block">Save</button>
               <button type="reset" class="btn btn-primary btn-block">Cancel</button>
-
-
-
             </div>
           </tab>
+
 
         <!-- <tab heading="Basic Title 2">Basic content 2</tab> -->
         </tabset>

@@ -10,6 +10,16 @@ import { IMedicine } from '../IMedicine.interface';
 export class MedicineListComponent implements OnInit {
 
  // medicines:any;
+ categoryList = [
+  'Pain Relievers',
+  'Antibiotics',
+  'Diabetes Care',
+  'Vitamins and Supplements',
+  'Nutrients',
+  'Cold and Flu Remedies',
+  'Allergy Medications',
+  'Skin Care'
+];
 
   medicines: Array<IMedicine>;
   Category='';

@@ -1,35 +1,72 @@
-
-
-.card-img-wrapper{
-  overflow:hidden;
-  position:relative;
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+  background-color: #fff;
 }
-.card:hover img{
-  transform: scale(1.2,1.2);
-  transition-duration: 500ms;
-  transition-timing-function: ease-out;
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-wrapper {
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-img-wrapper img {
+  width: 100%;
   height: 200px;
-  opacity: .5;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.card img{
-  transform: scale(1,1);
-  transition-duration: 500ms;
-  transition-timing-function: ease-out;
-  height: 200px;
-
+.card:hover img {
+  transform: scale(1.2);
+  opacity: 0.7;
 }
 
-member-icons{
-  position:absolute;
-  bottom:-30%;
-  left:0;
-  right:0;
-  margin-left:auto;
-  margin-right:auto;
+.member-icons {
+  position: absolute;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  transition: bottom 0.3s ease-in-out;
 }
 
-card-img-wrapper:hover .member-icons{
-  bottom:0;
-  
+.card-img-wrapper:hover .member-icons {
+  bottom: 10px;
+}
+
+.card-body {
+  padding: 15px;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #065596;
+
+}
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.btn-primary {
+  background-color: #a83b3b;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #E6A817;
+}
+.shadow-lg {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }

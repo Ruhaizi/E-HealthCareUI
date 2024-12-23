@@ -14,7 +14,7 @@ export class HealthService {
 constructor(private http:HttpClient) { }
 
 getAllCategories():Observable<string[]>{
-  return this.http.get<string[]>('https://localhost:44368/api/Category')
+  return this.http.get<string[]>('https://localhost:5001/api/Category')
 }
 
 getMedicine(id:number){
